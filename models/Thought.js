@@ -63,10 +63,7 @@ const ThoughtSchema = new Schema(
 
 // get total count of comments and replies on retrieval
 ThoughtSchema.virtual('reactionCount').get(function() {
-  return this.comments.reduce(
-    (total, comment) => total + comment.replies.length + 1,
-    0
-  );
+  return this.reactions.length;
 });
 
 const Thought = model('Thought', ThoughtSchema);
