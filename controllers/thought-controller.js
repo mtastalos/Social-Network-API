@@ -6,13 +6,13 @@ const thoughtController = {
       // .select('-__v')
       // .sort({ _id: -1 })
       .then(data => res.json(data))
-      .catch(err => {res.sendStatus(400);});
+      .catch(err => res.sendStatus(400));
   },
 
   getThoughtById({params}, res) {
     Thought.findOne({_id: params.id})
     .then(data => res.json(data))
-    .catch(err => {res.sendStatus(400);});
+    .catch(err => res.sendStatus(400));
   },
 
   createThought({body}, res){
@@ -24,13 +24,13 @@ const thoughtController = {
   updateThought({params, body}, res){
     Thought.findOneAndUpdate({_id: params.id}, body, {new: true, runValidators: true})
     .then(data => res.json(data))
-    .catch(err => {res.sendStatus(400);});
+    .catch(err => res.sendStatus(400));
   },
 
   deleteThought({params}, res){
     Thought.findOneAndDelete({_id: params.id})
     .then(data => res.json(data))
-    .catch(err => {res.sendStatus(400);});
+    .catch(err => res.sendStatus(400));
   },
 
   //reaction controls
@@ -41,7 +41,7 @@ const thoughtController = {
       {new: true, runValidators: true}
     )
     .then(data => res.json(data))
-    .catch(err => {res.sendStatus(400);});
+    .catch(err => res.sendStatus(400));
   },
 
   deleteReaction({params}, res){
@@ -51,7 +51,7 @@ const thoughtController = {
       {new: true, runValidators: true}
     )
     .then(data => res.json(data))
-    .catch(err => {res.sendStatus(400);});
+    .catch(err => res.sendStatus(400));
   }
 };
 
